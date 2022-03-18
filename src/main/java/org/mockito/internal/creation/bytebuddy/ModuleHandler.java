@@ -60,14 +60,14 @@ abstract class ModuleHandler {
                 addReads,
                 addOpens,
                 forName;
-        //TODO: Math.abs() might return a negative value so need to change it to rand.nextInt(Integer.MAX_VALUE);
         //TODO: method shouldn't throw Exception, it's too broad
         private ModuleSystemFound(ByteBuddy byteBuddy, SubclassLoader loader, Random random)
                 throws Exception {
             this.byteBuddy = byteBuddy;
             this.loader = loader;
             this.random = random;
-            injectonBaseSuffix = Math.abs(random.nextInt());
+            injectonBaseSuffix = random.nextInt(Integer.MAX_VALUE);
+
             Class<?> moduleType = Class.forName("java.lang.Module");
             getModule = Class.class.getMethod("getModule");
             isOpen = moduleType.getMethod("isOpen", String.class, moduleType);
