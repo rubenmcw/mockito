@@ -281,7 +281,7 @@ class SubclassBytecodeGenerator implements BytecodeGenerator {
         throw new MockitoException(
                 "The subclass byte code generator cannot create construction mocks");
     }
-
+    //TODO: Private method unused so delete it
     private <T> Collection<Class<? super T>> getAllTypes(Class<T> type) {
         Collection<Class<? super T>> supertypes = new LinkedList<>();
         supertypes.add(type);
