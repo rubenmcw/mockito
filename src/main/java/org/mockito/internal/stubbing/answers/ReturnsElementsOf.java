@@ -44,10 +44,11 @@ public class ReturnsElementsOf implements Answer<Object> {
     }
 
     @Override
-    //TODO: else needs to use curly braces, add them
     public Object answer(InvocationOnMock invocation) throws Throwable {
         if (elements.size() == 1) {
             return elements.get(0);
-        } else return elements.poll();
+        } else {
+            return elements.poll();
+        }
     }
 }
