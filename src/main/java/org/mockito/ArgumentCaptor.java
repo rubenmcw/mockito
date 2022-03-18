@@ -79,6 +79,7 @@ public class ArgumentCaptor<T> {
      *
      * @return null or default values
      */
+    //TODO: Dead store to local variable, so remove the variable
     public T capture() {
         T ignored = Mockito.argThat(capturingMatcher);
         return defaultValue(clazz);
