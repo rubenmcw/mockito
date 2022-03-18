@@ -55,6 +55,7 @@ class AndroidTempFileLocator {
     }
 
     //TODO: it's better to use index of char than index of string, need to change
+    //TODO: collapsable if statement, fix it
     private static File[] guessPath(String input) {
         List<File> results = new ArrayList<File>();
         for (String potential : splitPathList(input)) {
