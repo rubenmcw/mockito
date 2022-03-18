@@ -630,10 +630,11 @@ public class ArgumentMatchers {
      * @param value the given value.
      * @return <code>null</code>.
      */
-    //TODO: If statements must use curly braces, add them
     public static <T> T eq(T value) {
         reportMatcher(new Equals(value));
-        if (value == null) return null;
+        if (value == null) {
+            return null;
+        }
         return (T) Primitives.defaultValue(value.getClass());
     }
 
