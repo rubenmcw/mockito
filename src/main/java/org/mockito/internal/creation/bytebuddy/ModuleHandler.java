@@ -60,7 +60,7 @@ abstract class ModuleHandler {
                 addReads,
                 addOpens,
                 forName;
-
+        //TODO: Math.abs() might return a negative value so need to change it to rand.nextInt(Integer.MAX_VALUE);
         private ModuleSystemFound(ByteBuddy byteBuddy, SubclassLoader loader, Random random)
                 throws Exception {
             this.byteBuddy = byteBuddy;
