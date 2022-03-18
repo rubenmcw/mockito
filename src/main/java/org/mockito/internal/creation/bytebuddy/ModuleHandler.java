@@ -60,9 +60,8 @@ abstract class ModuleHandler {
                 addReads,
                 addOpens,
                 forName;
-        //TODO: method shouldn't throw Exception, it's too broad
         private ModuleSystemFound(ByteBuddy byteBuddy, SubclassLoader loader, Random random)
-                throws Exception {
+                throws ClassNotFoundException, NoSuchMethodException, SecurityException {
             this.byteBuddy = byteBuddy;
             this.loader = loader;
             this.random = random;
