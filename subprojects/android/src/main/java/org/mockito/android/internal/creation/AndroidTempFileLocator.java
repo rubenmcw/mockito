@@ -54,7 +54,6 @@ class AndroidTempFileLocator {
         return null;
     }
 
-    //TODO: it's better to use index of char than index of string, need to change
     //TODO: collapsable if statement, fix it
     private static File[] guessPath(String input) {
         List<File> results = new ArrayList<File>();
@@ -67,7 +66,7 @@ class AndroidTempFileLocator {
             if (end != potential.length() - 4) {
                 continue;
             }
-            int dash = potential.indexOf("-");
+            int dash = potential.indexOf('-');
             if (dash != -1) {
                 end = dash;
             }
