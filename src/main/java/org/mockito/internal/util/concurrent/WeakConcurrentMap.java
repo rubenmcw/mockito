@@ -34,18 +34,21 @@ public class WeakConcurrentMap<K, V> extends ReferenceQueue<K>
     /**
      * @param cleanerThread {@code true} if a thread should be started that removes stale entries.
      */
-    //TODO: constructor invokes Thread.start(), this is bad, another method should invoke Thread.start()
     public WeakConcurrentMap(boolean cleanerThread) {
         target = new ConcurrentHashMap<>();
         if (cleanerThread) {
             thread = new Thread(this);
-            thread.setName("weak-ref-cleaner-" + ID.getAndIncrement());
-            thread.setPriority(Thread.MIN_PRIORITY);
-            thread.setDaemon(true);
-            thread.start();
+            startThread();
         } else {
             thread = null;
         }
+    }
+
+    public void startThread() {
+        thread.setName("weak-ref-cleaner-" + ID.getAndIncrement());
+        thread.setPriority(Thread.MIN_PRIORITY);
+        thread.setDaemon(true);
+        thread.start();
     }
 
     /**
