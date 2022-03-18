@@ -54,7 +54,6 @@ class AndroidTempFileLocator {
         return null;
     }
 
-    //TODO: collapsable if statement, fix it
     private static File[] guessPath(String input) {
         List<File> results = new ArrayList<File>();
         for (String potential : splitPathList(input)) {
@@ -74,10 +73,8 @@ class AndroidTempFileLocator {
             File dataDir = new File("/data/data/" + packageName);
             if (isWritableDirectory(dataDir)) {
                 File cacheDir = new File(dataDir, "cache");
-                if (fileOrDirExists(cacheDir) || cacheDir.mkdir()) {
-                    if (isWritableDirectory(cacheDir)) {
-                        results.add(cacheDir);
-                    }
+                if ((fileOrDirExists(cacheDir) || cacheDir.mkdir()) && isWritableDirectory(cacheDir)) {
+                    results.add(cacheDir);
                 }
             }
         }
